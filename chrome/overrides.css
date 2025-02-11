@@ -4,6 +4,10 @@
   }
 }
 
+:root {
+  --toolbar-bgcolor: #3C3836 !important;
+}
+
 :root, #screenshots-component *{
   --sdbr-wdt: 200px !important; 
 }
