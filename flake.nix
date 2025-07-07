@@ -23,22 +23,9 @@
         inherit system;
         config.allowUnfree = true;
       };
-      shyfoxPkg = pkgs.fetchFromGitHub {
-        owner = "blockdoth";
-        repo = "ShyFox";
-        rev = "fba147660a1b374f00e50df59b525f7c7bb5a4e5";
-        sha256 = "sha256-YfPDJHoyA0tj73rnDOqI65n0bAh8hSTPnXLDEkzQVpg=";
-      };
       firefoxModule = import ./firefox.nix;
     in
     {
       homeManagerModules.shyfox = firefoxModule;      
-      packages.${system}.shyfox = shyfoxPkg;
-      homeConfigurations.username = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          firefoxModule
-        ];
-      };
     };
 }

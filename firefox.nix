@@ -15,12 +15,19 @@ let
   '';
   sideberyConfig = builtins.fromJSON (builtins.readFile cfg.sideberyConfigPath);
   defaultProfile = "default";
+  shyfoxPkg = pkgs.fetchFromGitHub {
+    owner = "blockdoth";
+    repo = "ShyFox";
+    rev = "fba147660a1b374f00e50df59b525f7c7bb5a4e5";
+    sha256 = "sha256-YfPDJHoyA0tj73rnDOqI65n0bAh8hSTPnXLDEkzQVpg=";
+  };
 in
 {
-  options.modules.programs.browsers.firefox = {
+  options.modules.shyfox = {
     enable = lib.mkEnableOption "Enable custom Firefox setup";
     shyfox = lib.mkOption {
       type = lib.types.package;
+      default = shyfoxPkg;
       description = "The ShyFox package providing chrome and user.js";
     };
     sideberyConfigPath = lib.mkOption {
