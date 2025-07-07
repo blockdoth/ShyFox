@@ -6,7 +6,7 @@
   ...
 }:
 let
-  cfg = config.modules.programs.browsers.firefox;
+  cfg = config.programs.shyfox;
   shyfoxProfile = pkgs.runCommand "shyfox-profile" { } ''
     mkdir -p $out
     mkdir -p $out/chrome
@@ -14,7 +14,6 @@ let
     cp ${cfg.shyfox}/user.js $out/user.js
   '';
   sideberyConfig = builtins.fromJSON (builtins.readFile cfg.sideberyConfigPath);
-  defaultProfile = "default";
   shyfoxPkg = pkgs.fetchFromGitHub {
     owner = "blockdoth";
     repo = "ShyFox";
@@ -23,7 +22,7 @@ let
   };
 in
 {
-  options.modules.shyfox = {
+  options.programs.shyfox = {
     enable = lib.mkEnableOption "Enable custom Firefox setup";
     shyfox = lib.mkOption {
       type = lib.types.package;
@@ -45,7 +44,7 @@ in
   config = lib.mkIf cfg.enable {
     home.sessionVariables.BROWSER = "firefox";
 
-    home.file.".mozilla/firefox/${defaultProfile}" = {
+    home.file.".mozilla/firefox/${cfg.profile}" = {
       source = shyfoxProfile;
       recursive = true;
     };
@@ -82,7 +81,7 @@ in
         };
       };
 
-      profiles.${defaultProfile} = {
+      profiles.${cfg.profile} = {
         isDefault = true;
 
        search = {
@@ -108,7 +107,7 @@ in
                 }
               ];
             };
-            "YouTube" = {
+            "youtube" = {
               definedAliases = [ "@yt" ];
               icon = "https://www.youtube.com/s/desktop/2253fa3d/img/logos/favicon.ico";
               urls = [
