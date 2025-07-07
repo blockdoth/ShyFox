@@ -26,3 +26,8 @@ user_pref("widget.gtk.rounded-bottom-corners.enabled", true);
 // Who is bogus? (fixes Sidebery tab dragging on Linux)
 user_pref("widget.gtk.ignore-bogus-leave-notify", 1);
 user_pref("shyfox.disable.floating.search", true);
+
+// Dark mode
+user_pref("ui.systemUsesDarkTheme", 1);
+user_pref("browser.in-content.dark-mode", true);
+user_pref("layout.css.prefers-color-scheme.content-override", 2);

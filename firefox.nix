@@ -157,7 +157,7 @@ in
             force = true;
             settings = {
               settings = sideberyConfig.settings;
-              sidebar = sideberyConfig.sidebar;
+              sidebarCSS = sideberyConfig.sidebarCSS;
               contextMenu = sideberyConfig.contextMenu;
               keybindings = sideberyConfig.keybindings;
             };
