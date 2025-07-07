@@ -159,9 +159,7 @@ in
               settings = sideberyConfig.settings;
               sidebar = sideberyConfig.sidebar;
               sidebarCSS = sideberyConfig.sidebarCSS;
-              containers = sideberyConfig.containers;
               contextMenu = sideberyConfig.contextMenu;
-              keybindings = sideberyConfig.keybindings;
             };
           };
         };

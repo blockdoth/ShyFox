@@ -1,1 +1,2 @@
-Stripped down version of ShyFox for my Nixos config
+Attempt at making my ShyFox based firefox config/rice reproducible
+
