@@ -132,6 +132,16 @@ in
                 }
               ];
             };
+
+            "Home Manager" = {
+              definedAliases = [ "@hm" ];
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              urls = [
+                {
+                  template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master";
+                }
+              ];
+            };            
           };
         };
 
@@ -158,7 +168,7 @@ in
             settings = {
               settings = sideberyConfig.settings;
               sidebar = sideberyConfig.sidebar;
-              sidebarCSS = sideberyConfig.sidebarCSS;
+              sidebarCSS = sideberyConfig.sidebarCSS; # Does not apply for some reason
               contextMenu = sideberyConfig.contextMenu;
             };
           };
