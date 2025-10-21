@@ -107,6 +107,25 @@ in
                 }
               ];
             };
+            "Nix Options" = {
+              definedAliases = [ "@opt" ];
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              urls = [
+                {
+                  template = "https://search.nixos.org/options";
+                  params = [
+                    {
+                      name = "type";
+                      value = "packages";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+            };            
             "youtube" = {
               definedAliases = [ "@yt" ];
               icon = "https://www.youtube.com/s/desktop/2253fa3d/img/logos/favicon.ico";
